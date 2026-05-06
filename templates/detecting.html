@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Detecting</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header>Detecting Emotion</header>
+
+<div class="container">
+<div class="card">
+
+<h2>Look at Camera 👀</h2>
+
+<img src="{{ url_for('video') }}" width="250">
+
+<br><br>
+
+<a href="/result">
+<button>Show Result</button>
+</a>
+
+</div>
+</div>
+
+</body>
+</html>

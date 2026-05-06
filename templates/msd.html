@@ -1,0 +1,39 @@
+<html> <!-- HTML document starts -->
+<head>
+<title>Diffie-Hellman Key Exchange</title> <!-- Title of page -->
+</head>
+<body> <!-- Body starts -->
+<h2>Diffie-Hellman Key Exchange</h2> <!-- Heading -->
+<script> // JavaScript starts
+function power(base,exp,mod){
+  let result=1; /* Initialize result */ 
+  base=base%mod; /* Reduce base */ 
+  while(exp>0){
+    if(exp%2===1){
+      result=(result*base)%mod;
+    } /* If exp odd multiply */
+    exp=Math.floor(exp/2); /* Divide exp by 2 */ 
+    base=(base*base)%mod; /* Square base */
+  } return result;
+} /* Return result */
+let P=parseInt(prompt("Enter a prime number (P):")); /* Input P */
+document.write("The value of P: "+P+"<br>"); /* Display P */
+let G=parseInt(prompt("Enter a primitive root modulo P (G):")); /* Input G */
+document.write("The value of G: "+G+"<br>"); /* Display G */
+let a=parseInt(prompt("Enter Alice's private key (a):")); /* Alice private key */
+document.write("Alice's private key a: "+a+"<br>"); /* Display a */
+let b=parseInt(prompt("Enter Bob's private key (b):")); /* Bob private key */
+document.write("Bob's private key b: "+b+"<br>"); /* Display b */
+let A=power(G,a,P); /* Alice public key A = G^a mod P */
+let B=power(G,b,P); /* Bob public key B = G^b mod P */
+let secretKeyAlice=power(B,a,P); /* Alice secret key */
+let secretKeyBob=power(A,b,P); /* Bob secret key */
+document.write("Alice's public key (A): "+A+"<br>"); /* Show A */
+document.write("Bob's public key (B): "+B+"<br>"); /* Show B */
+document.write("Secret key for Alice: "+secretKeyAlice+"<br>"); /* Show Alice key */
+document.write("Secret key for Bob: "+secretKeyBob+"<br>"); /* Show Bob key */
+if(secretKeyAlice===secretKeyBob){document.write("<b>Key exchange successful! Shared secret is: "+secretKeyAlice+"</b>");} /* Check success */
+else{document.write("<b>Key exchange failed!</b>");} /* Failure case */
+</script> <!-- End script -->
+</body> <!-- End body -->
+</html> <!-- End HTML -->

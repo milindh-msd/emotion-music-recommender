@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mode</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header>Select Mode</header>
+
+<div class="container">
+<div class="card">
+
+<h3>Manual Mode</h3>
+<form action="/manual" method="post">
+<select name="emotion" required>
+<option value="">Select Emotion</option>
+<option>Happy</option>
+<option>Sad</option>
+<option>Angry</option>
+<option>Neutral</option>
+<option>Excited</option>
+<option>Relaxed</option>
+<option>Bored</option>
+<option>Fear</option>
+<option>Surprised</option>
+</select>
+<br><br>
+<button type="submit">Show Result</button>
+</form>
+
+<hr><br>
+
+<h3>Webcam Mode</h3>
+<a href="/detecting">
+<button>Use Webcam</button>
+</a>
+
+</div>
+</div>
+
+</body>
+</html>

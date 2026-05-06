@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header>Result</header>
+
+<div class="container">
+<div class="card">
+<h2>{{ emotion }}</h2>
+
+<div class="emoji">{{ emoji }}</div>
+<h3>Recommended Songs 🎵</h3>
+{% for s in songs %}
+<a href="{{ s }}" target="_blank">
+<button>Play ▶</button>
+</a>
+{% endfor %}
+
+
+<br><br>
+
+<a href="/">
+<button>Go Back</button>
+</a>
+
+</div>
+</div>
+
+</body>
+</html>
